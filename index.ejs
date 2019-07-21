@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title> Banglore Schools </title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />		    
+        <link rel='stylesheet' href="/stylesheets/style.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    </head>
+
+	<body>
+   
+		<div class = "container">
+      <h1>Banglore Schools </h1>
+      
+    
+
+
+      <br>
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <br>
+      <button type="button" class="btn">Search</button>
+      <br>
+      <br>
+			<div class = "table-responsive">
+                  
+                    <br>
+					<table class = "table table-bordered table-striped" >
+            <tbody = 
+						<tr>
+							<th>block</th>
+							<th>cluster</th>
+							<th>schoolid</th>
+							<th>schoolname</th>
+							<th>category</th>
+							<th>gender</th>
+							<th>medium_of_inst</th>
+							<th>address</th>
+							<th>area</th>
+							<th>pincode</th>
+							<th>landmark</th>
+							<th>busroutes</th>
+            </tr> 
+
+            <% for(var i=0; i < docs.length; i++) { %>
+                <tr>
+                  <td><%= docs[i].block %></td>
+                  <td><%= docs[i].cluster %></td>
+                  <td><%= docs[i].schoolid %></td>
+                  <td><%= docs[i].schoolname %></td>
+                  <td><%= docs[i].category %></td>
+                  <td><%= docs[i].gender %></td>
+                  <td><%= docs[i].medium_of_inst %></td>
+                  <td><%= docs[i].address %></td>
+                  <td><%= docs[i].area %></td>
+                  <td><%= docs[i].pincode %></td>
+                  <td><%= docs[i].landmark %></td>
+                  <td><%= docs[i].busroutes %></td>
+                </tr>
+              <% } %>
+            </table>
+				</div>
+      </div>
+
+    </body>
+</html>
