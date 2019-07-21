@@ -60,9 +60,8 @@ app.get('/', function(req, res){
  });
 
  app.post('/search',function(req,res){
-  var a = {
-      schoolname : req.body.search,
-  }
+ const a = req.body.search;
+  
   console.log(a);
   mongoose.model('school').find(a).exec(function(err, result) { 
     console.log('');
