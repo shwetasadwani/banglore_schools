@@ -1,66 +1,95 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title> Banglore Schools </title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />		    
-        <link rel='stylesheet' href="/stylesheets/style.css"/>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-    </head>
+		<title> Banglore Schools </title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />		    
+		<link rel='stylesheet' href="/stylesheets/style.css"/>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
 
 	<body>
    
-		<div class = "container">
-      <h1>Banglore Schools </h1>
-      
-    
-     <form name="form1" method="POST" action="/search">
-        <table>
-            <tr>
-            <td>Search</td>
-            <td><input type="text" name="search" ></td>
-            </tr>
-        </table>
-        </form>  
-	<br>
-	
-	<div class = "table-responsive">
-                    <br>
-				<table class = "table table-bordered table-striped" >
-						<tr>
-							<th>block</th>
-							<th>cluster</th>
-							<th>schoolid</th>
-							<th>schoolname</th>
-							<th>category</th>
-							<th>gender</th>
-							<th>medium_of_inst</th>
-							<th>address</th>
-							<th>area</th>
-							<th>pincode</th>
-							<th>landmark</th>
-							<th>busroutes</th>
-            </tr> 
+	<div class = "container">
+      		<h1>Banglore Schools </h1>
+      		<br>
+		
+      		<form action="/search" method="post">
+        		School_name : <input name="schoolnames" type="text" size="12" autocomplete="off"/> 
+			
+        		<!-- Add : <input name="adds" type="text" size="12" autocomplete="off"/> 
+       		 	Area : <input name="areas" type="text" size="12" autocomplete="off"/> 
+        		Pincode : <input name="pins" type="text" size="12" autocomplete="off"/> 
+        		Landmark : <input name="lands" type="text" size="12" autocomplete="off"/>  -->
+			
+        		<input value="Search" type="submit" />
+    		</form>
 
-            <% for(var i=0; i < docs.length; i++) { %>
-                <tr>
-                  <td><%= docs[i].block %></td>
-                  <td><%= docs[i].cluster %></td>
-                  <td><%= docs[i].schoolid %></td>
-                  <td><%= docs[i].schoolname %></td>
-                  <td><%= docs[i].category %></td>
-                  <td><%= docs[i].gender %></td>
-                  <td><%= docs[i].medium_of_inst %></td>
-                  <td><%= docs[i].address %></td>
-                  <td><%= docs[i].area %></td>
-                  <td><%= docs[i].pincode %></td>
-                  <td><%= docs[i].landmark %></td>
-                  <td><%= docs[i].busroutes %></td>
-                </tr>
-              <% } %>
-            </table>
-				</div>
-      </div>
+		<br>
+		
+    		<form action="/sort" method="post"> 
+      			Column_name : <input name="column" list="columns" size="12" autocomplete="off"/> 
+		        <datalist id="columns">
+				<option value="schoolname"></option>
+			    	<option value="medium_of_inst"></option>
+			   	 <option value="pincode"></option>
+		      	</datalist>  
+			
+      			<input value="sort" type="submit" />
+ 		 </form>
+
+		<br>
+
+		<form action="/filter" method="post">
+			  Gender: <input name="genders" list="genders" size="12" autocomplete="off"/>
+			  <datalist id="genders">
+			      	<option value="boys"></option>
+			     	<option value="girls"></option>
+			      	<option value="co-ed"></option>
+			</datalist>
+		  <input type="submit" value="Filter"/>
+		</form>
+      
+      		<br>
+      		<br>
+		
+		<div class = "table-responsive">
+                	<br>
+			<table class = "table table-bordered table-striped" >
+				<tr>
+					<th>block</th>
+					<th>cluster</th>
+					<th>schoolid</th>
+					<th>schoolname</th>
+					<th>category</th>
+					<th>gender</th>
+					<th>medium_of_inst</th>
+					<th>address</th>
+					<th>area</th>
+					<th>pincode</th>
+					<th>landmark</th>
+					<th>busroutes</th>
+           			</tr> 
+
+			    	<% for(var i=0; i < docs.length; i++) { %>
+					<tr>
+						  <td><%= docs[i].block %></td>
+						  <td><%= docs[i].cluster %></td>
+						  <td><%= docs[i].schoolid %></td>
+						  <td><%= docs[i].schoolname %></td>
+						  <td><%= docs[i].category %></td>
+						  <td><%= docs[i].gender %></td>
+						  <td><%= docs[i].medium_of_inst %></td>
+						  <td><%= docs[i].address %></td>
+						  <td><%= docs[i].area %></td>
+						  <td><%= docs[i].pincode %></td>
+						  <td><%= docs[i].landmark %></td>
+						  <td><%= docs[i].busroutes %></td>
+					</tr>
+			     	<% } %>
+            		</table>
+		</div>
+      	</div>
 
     </body>
+    
 </html>
